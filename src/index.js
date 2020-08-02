@@ -1,15 +1,28 @@
 function main() {
   class Parser {
+    /**
+     * @param {string} path
+     * @param {string} content
+     */
     parse(path, content) {
       const node = this.pathToParser(path).parse(content);
       node.path = path;
       return node;
     }
 
+    /**
+     * @param {string} path
+     * @param {*} node
+     * @returns {string} code
+     */
     stringify(path, node) {
       return this.pathToParser(path).print(node).code;
     }
 
+    /**
+     * @param {string} path
+     * @returns {*} parser
+     */
     pathToParser(path) {
       const ext = require("path").extname(path);
       switch (ext) {
@@ -22,18 +35,31 @@ function main() {
   }
 
   class Workspace {
+    /**
+     * @param {string} dir
+     * @param {*} options
+     */
     constructor(dir, options = {}) {
       this.dir = dir;
       this.reader = options.reader;
       this.parser = new Parser();
     }
 
+    /**
+     * @param {string} path
+     * @param {function(*):*} transformer
+     * @returns {Promise<string>}
+     */
     transform(path, transformer) {
       return this.parse(path)
         .then(node => transformer(node))
         .then(node => this.parser.stringify(path, node));
     }
 
+    /**
+     * @param {string} path
+     * @returns {Promise<*>}
+     */
     parse(path) {
       const promisify = require("util").promisify;
       return promisify(this.reader.readFile)(path).then(content => {
@@ -42,6 +68,10 @@ function main() {
       });
     }
 
+    /**
+     * @param {string} pattern
+     * @returns {Promise<string[]>}
+     */
     ls(pattern) {
       const promisify = require("util").promisify;
       const pm = require("picomatch");
@@ -93,6 +123,13 @@ function main() {
     console.log(code);
   });
 
+  /**
+   * @param {*} node
+   * @param {string} varName
+   * @param {string} newVarName
+   * @param {*=} scope
+   * @returns {*}
+   */
   function rename(node, varName, newVarName, scope = null) {
     return require("recast").visit(node, {
       visitIdentifier(path) {
