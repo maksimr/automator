@@ -15,7 +15,7 @@ function main() {
 
   project
     .transform("/a/d/e.js", node => {
-      return require("../lib/actions/rename")(node, "x", "y");
+      return require("../lib/node/rename")(node, "x", "y");
     })
     .then(code => {
       console.log(code);
