@@ -7,6 +7,7 @@ function main() {
   fs.writeFileSync('/a/d/e.js', 'var x = "foo"; x;');
 
   const Workspace = require('../lib/Workspace').Workspace;
+  const rename = require('../lib/node/rename');
   const project = new Workspace('/a', { reader: fs });
 
   project.ls('**/*.js').then(function(files) {
@@ -15,7 +16,7 @@ function main() {
 
   project
     .transform('/a/d/e.js', node => {
-      return require('../lib/node/rename')(node, 'x', 'y');
+      return rename(node, 'x', 'y');
     })
     .then(code => {
       console.log(code);
