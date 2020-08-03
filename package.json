@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "memfs": "3.2.0",
+    "parse5": "6.0.1",
     "picomatch": "2.2.2",
     "recast": "0.19.1"
   },
