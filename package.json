@@ -5,6 +5,7 @@
   "main": "index.html",
   "scripts": {
     "test": "jest",
+    "lint": "eslint lib/",
     "start": "parcel index.html --open",
     "build": "parcel build index.html"
   },
@@ -14,10 +15,42 @@
     "recast": "0.19.1"
   },
   "devDependencies": {
+    "eslint": "7.6.0",
     "jest": "26.2.2",
     "jest-cli": "26.2.2",
     "@babel/core": "7.11.0",
     "parcel-bundler": "1.12.4"
+  },
+  "eslintConfig": {
+    "parserOptions": {
+      "ecmaVersion": 8
+    },
+    "env": {
+      "browser": true,
+      "node": true
+    },
+    "globals": {
+      "WeakMap": true,
+      "Promise": true,
+      "describe": true,
+      "it": true,
+      "beforeEach": true,
+      "spyOn": true,
+      "expect": true
+    },
+    "rules": {
+      "semi": "error",
+      "no-undef": "error",
+      "no-unused-vars": "error",
+      "valid-jsdoc": [
+        "error",
+        {
+          "requireReturn": false,
+          "requireParamDescription": false,
+          "requireReturnDescription": false
+        }
+      ]
+    }
   },
   "keywords": []
 }
