@@ -1,2 +1,2 @@
-# automator
+# 🤖 Automator
 Created with CodeSandbox
