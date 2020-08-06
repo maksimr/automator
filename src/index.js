@@ -17,7 +17,7 @@ function main() {
 
   project
     .transform('/a/b.html', node => {
-      node.childNodes[0].tagName = 'foo';
+      node.childNodes[0].tagName = 'i';
       return node;
     })
     .then(code => console.log(code));
