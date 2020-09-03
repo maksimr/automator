@@ -2,8 +2,13 @@
   "extends": [
     "config:base"
   ],
-  "automerge": true,
-  "major": {
-    "automerge": true
-  }
+  "packageRules": [
+    {
+      "depTypeList": [
+        "dependencies",
+        "devDependencies"
+      ],
+      "automerge": true
+    }
+  ]
 }
