@@ -6,6 +6,7 @@
   "scripts": {
     "test": "jest",
     "lint": "eslint lib/",
+    "test:type": "tsc",
     "start": "parcel index.html --open",
     "build": "parcel build index.html"
   },
@@ -17,6 +18,8 @@
     "recast": "0.20.4"
   },
   "devDependencies": {
+    "typescript": "4.1.2",
+    "@types/jest": "26.0.15",
     "eslint": "7.15.0",
     "jest": "26.6.3",
     "jest-cli": "26.6.3",
