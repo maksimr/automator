@@ -8,6 +8,7 @@
     "lint": "eslint lib/",
     "test:type": "tsc",
     "start": "parcel index.html --open",
+    "bump": "npm version patch -m 'release: version %s' && git push && git push --tags",
     "build": "parcel build index.html"
   },
   "dependencies": {
