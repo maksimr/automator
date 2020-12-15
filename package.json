@@ -2,7 +2,12 @@
   "name": "@maksimr/automator",
   "version": "0.1.3",
   "description": "",
-  "main": "index.html",
+  "main": "lib/Workspace.js",
+  "license": "MIT",
+  "files": [
+    "package.json",
+    "lib/"
+  ],
   "scripts": {
     "test": "jest",
     "lint": "eslint lib/",
