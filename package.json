@@ -29,7 +29,7 @@
     "eslint": "7.20.0",
     "jest": "26.6.3",
     "jest-cli": "26.6.3",
-    "@babel/core": "7.12.17",
+    "@babel/core": "7.13.0",
     "parcel-bundler": "1.12.4"
   },
   "eslintConfig": {
