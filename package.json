@@ -23,7 +23,7 @@
     "recast": "0.20.4"
   },
   "devDependencies": {
-    "memfs": "3.2.1",
+    "memfs": "3.2.2",
     "typescript": "4.2.3",
     "@types/jest": "26.0.22",
     "eslint": "7.23.0",
